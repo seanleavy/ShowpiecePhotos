@@ -54,7 +54,7 @@ public class HomescreenPresenterImpl implements HomescreenPresenter {
     @Override
     public void getRecentPosts() {
         instagramPostApi.getRecentMediaObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<List<InstagramPost>>() {
+                .subscribe(new Subscriber<InstagramPost>() {
                     @Override
                     public void onCompleted() {
 
@@ -66,7 +66,7 @@ public class HomescreenPresenterImpl implements HomescreenPresenter {
                     }
 
                     @Override
-                    public void onNext(List<InstagramPost> instagramPosts) {
+                    public void onNext(InstagramPost instagramPosts) {
                         Toast.makeText(context, "on next", Toast.LENGTH_SHORT).show();
                     }
                 });
