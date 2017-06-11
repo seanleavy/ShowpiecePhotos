@@ -1,7 +1,7 @@
-package com.example.sean.showpiecephotos.homescreen.model;
+package com.example.sean.showpiecephotos.model;
 
 import com.example.sean.showpiecephotos.constants.Constants;
-import com.example.sean.showpiecephotos.homescreen.model.Pojo.InstagramUser;
+import com.example.sean.showpiecephotos.model.Pojo.user.InstagramUser;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -10,14 +10,10 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
 
-/**
- * Created by sean on 11/06/2017.
- */
-
 public class InstagramUserApi {
 
     private interface InstagramUserService {
-        @GET("/users/self")
+        @GET("users/self/")
         Observable<InstagramUser> getUserSelf(@Query("access_token") String access_token);
     }
 
@@ -26,7 +22,9 @@ public class InstagramUserApi {
             .baseUrl(Constants.BASE_URL)
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
-            .build().create(InstagramUserService.class).getUserSelf("1491562952.65fd82d.c25001c90509456ab4ae74b4cfbdc249").cache();
+            .build().create(InstagramUserService.class)
+            .getUserSelf("1491562952.65fd82d.c25001c90509456ab4ae74b4cfbdc249")
+            .cache();
 
     public Observable<InstagramUser> getUserObservable() {
         return userObservable;

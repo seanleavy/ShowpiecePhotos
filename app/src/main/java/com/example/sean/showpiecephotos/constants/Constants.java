@@ -7,6 +7,6 @@ public class Constants {
     public static final String SHARED_PREFERENCE_TOKEN = "access_token";
 
     public static final String BASE_URL = "https://api.instagram.com/v1/";
-    public static final String LOGIN_URL = "/users/self";
+    public static final String LOGIN_URL = "/users/selfApi";
 
 }

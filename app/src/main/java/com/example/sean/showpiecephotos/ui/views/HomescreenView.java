@@ -1,4 +1,4 @@
-package com.example.sean.showpiecephotos.homescreen.ui;
+package com.example.sean.showpiecephotos.ui.views;
 
 
 public interface HomescreenView {

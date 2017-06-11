@@ -1,13 +1,12 @@
-package com.example.sean.showpiecephotos.homescreen.ui;
+package com.example.sean.showpiecephotos.ui.presenters;
 
 
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.sean.showpiecephotos.homescreen.model.InstagramUserApi;
-import com.example.sean.showpiecephotos.homescreen.model.Pojo.InstagramUser;
-
-import javax.inject.Inject;
+import com.example.sean.showpiecephotos.model.InstagramUserApi;
+import com.example.sean.showpiecephotos.model.Pojo.user.InstagramUser;
+import com.example.sean.showpiecephotos.ui.views.HomescreenView;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;

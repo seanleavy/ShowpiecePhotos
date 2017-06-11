@@ -1,4 +1,4 @@
-package com.example.sean.showpiecephotos.homescreen.ui.activities;
+package com.example.sean.showpiecephotos.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,11 +6,9 @@ import android.widget.TextView;
 
 import com.example.sean.showpiecephotos.constants.Constants;
 import com.example.sean.showpiecephotos.R;
-import com.example.sean.showpiecephotos.homescreen.ui.HomescreenPresenter;
-import com.example.sean.showpiecephotos.homescreen.ui.HomescreenPresenterImpl;
-import com.example.sean.showpiecephotos.homescreen.ui.HomescreenView;
-
-import javax.inject.Inject;
+import com.example.sean.showpiecephotos.ui.presenters.HomescreenPresenter;
+import com.example.sean.showpiecephotos.ui.presenters.HomescreenPresenterImpl;
+import com.example.sean.showpiecephotos.ui.views.HomescreenView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
