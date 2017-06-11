@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.ui.activities.LoginActivity">
+    tools:context="com.example.sean.showpiecephotos.login.ui.activities.OauthWebviewActivity">
 
-    <Button
-        style="@style/MyButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/button_height"
-        android:id="@+id/login_button"
-        android:text="@string/login_button"/>
+    <WebView
+        android:id="@+id/instagram_auth"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
 
 </android.support.constraint.ConstraintLayout>

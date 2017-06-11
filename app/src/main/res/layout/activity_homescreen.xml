@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.ui.activities.LoginActivity">
+    tools:context="com.example.sean.showpiecephotos.homescreen.ui.activities.HomescreenActivity">
 
-    <Button
-        style="@style/MyButtonStyle"
+    <TextView
+        android:id="@+id/access_token"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/button_height"
-        android:id="@+id/login_button"
-        android:text="@string/login_button"/>
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"/>
 
 </android.support.constraint.ConstraintLayout>
