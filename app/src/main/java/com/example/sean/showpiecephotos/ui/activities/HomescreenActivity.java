@@ -28,11 +28,13 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
         mAccessToken.setText(getIntent().getExtras().getString(Constants.SHARED_PREFERENCE_TOKEN));
         homescreenPresenter = new HomescreenPresenterImpl(this, this);
         homescreenPresenter.populateUser();
+        homescreenPresenter.getRecentPosts();
     }
 
     @Override
     public void loadUser() {
         // use eventbus to load this
+
     }
 
     @Override
