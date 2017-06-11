@@ -1,12 +1,12 @@
-package com.example.sean.showpiecephotos.model.Pojo.posts;
+package com.example.sean.showpiecephotos.model.Pojo.recentPosts;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.Datum;
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.Meta;
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.Pagination;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.Datum;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.Meta;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.Pagination;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -1,4 +1,4 @@
-package com.example.sean.showpiecephotos.model.Pojo.posts.nested;
+package com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested;
 
 import java.util.HashMap;
 import java.util.Map;

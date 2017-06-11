@@ -1,4 +1,4 @@
-package com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum;
+package com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum;
 
 
 import java.util.HashMap;

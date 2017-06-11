@@ -2,7 +2,7 @@ package com.example.sean.showpiecephotos.model;
 
 
 import com.example.sean.showpiecephotos.constants.Constants;
-import com.example.sean.showpiecephotos.model.Pojo.posts.InstagramPost;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.InstagramPost;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;

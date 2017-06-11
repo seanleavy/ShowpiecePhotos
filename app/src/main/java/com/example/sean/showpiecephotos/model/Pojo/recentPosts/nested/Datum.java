@@ -1,15 +1,15 @@
-package com.example.sean.showpiecephotos.model.Pojo.posts.nested;
+package com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested;
 
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum.Caption;
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum.Comments;
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum.Images;
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum.Likes;
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum.User;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum.Caption;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum.Comments;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum.Images;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum.Likes;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum.User;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -1,5 +1,4 @@
-package com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum;
-
+package com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
         "count"
 })
-public class Likes {
+public class Comments {
 
     @JsonProperty("count")
     private Integer count;

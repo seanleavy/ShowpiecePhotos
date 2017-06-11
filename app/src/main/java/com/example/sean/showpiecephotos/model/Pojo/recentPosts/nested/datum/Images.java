@@ -1,12 +1,12 @@
-package com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum;
+package com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum;
 
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum.images.LowResolution;
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum.images.StandardResolution;
-import com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum.images.Thumbnail;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum.images.LowResolution;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum.images.StandardResolution;
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum.images.Thumbnail;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;

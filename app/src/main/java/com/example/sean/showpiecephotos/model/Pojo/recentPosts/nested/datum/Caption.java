@@ -1,8 +1,10 @@
-package com.example.sean.showpiecephotos.model.Pojo.posts.nested.datum.caption;
+package com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum;
 
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.datum.caption.From;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -13,20 +15,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "id",
-        "full_name",
-        "profile_picture",
-        "username"
+        "text",
+        "created_time",
+        "from"
 })
-public class From {
+public class Caption {
 
     @JsonProperty("id")
     private String id;
-    @JsonProperty("full_name")
-    private String fullName;
-    @JsonProperty("profile_picture")
-    private String profilePicture;
-    @JsonProperty("username")
-    private String username;
+    @JsonProperty("text")
+    private String text;
+    @JsonProperty("created_time")
+    private String createdTime;
+    @JsonProperty("from")
+    private From from;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -40,34 +42,34 @@ public class From {
         this.id = id;
     }
 
-    @JsonProperty("full_name")
-    public String getFullName() {
-        return fullName;
+    @JsonProperty("text")
+    public String getText() {
+        return text;
     }
 
-    @JsonProperty("full_name")
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    @JsonProperty("text")
+    public void setText(String text) {
+        this.text = text;
     }
 
-    @JsonProperty("profile_picture")
-    public String getProfilePicture() {
-        return profilePicture;
+    @JsonProperty("created_time")
+    public String getCreatedTime() {
+        return createdTime;
     }
 
-    @JsonProperty("profile_picture")
-    public void setProfilePicture(String profilePicture) {
-        this.profilePicture = profilePicture;
+    @JsonProperty("created_time")
+    public void setCreatedTime(String createdTime) {
+        this.createdTime = createdTime;
     }
 
-    @JsonProperty("username")
-    public String getUsername() {
-        return username;
+    @JsonProperty("from")
+    public From getFrom() {
+        return from;
     }
 
-    @JsonProperty("username")
-    public void setUsername(String username) {
-        this.username = username;
+    @JsonProperty("from")
+    public void setFrom(From from) {
+        this.from = from;
     }
 
     @JsonAnyGetter
@@ -81,4 +83,3 @@ public class From {
     }
 
 }
-
