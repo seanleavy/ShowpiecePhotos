@@ -1,15 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="@dimen/standard_padding"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.activities.HomescreenActivity">
 
-    <TextView
-        android:id="@+id/access_token"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textIsSelectable="true"/>
+        android:paddingBottom="@dimen/standard_padding">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="@dimen/profile_picture_size"
+            android:layout_height="@dimen/profile_picture_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/standard_padding">
+
+            <TextView
+                android:id="@+id/fullname"
+                style="@style/MainTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="full Name" />
+
+            <TextView
+                android:id="@+id/nickname"
+                style="@style/SubTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/standard_padding"
+                android:paddingTop="@dimen/standard_padding"
+                android:text="nickname" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/RecentPostsMaintextStyle"
+                        android:id="@+id/follows"
+                        android:paddingRight="@dimen/standard_padding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="following" />
+
+                    <TextView
+                        style="@style/RecentPostsMaintextStyle"
+                        android:id="@+id/followingLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" following" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:paddingTop="@dimen/standard_padding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/following"
+                        android:paddingRight="@dimen/standard_padding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="follows" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recent_posts_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

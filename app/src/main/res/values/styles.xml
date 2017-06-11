@@ -10,8 +10,15 @@
 
     <style name="MyButtonStyle" parent="Base.Widget.AppCompat.Button">
         <item name="android:textSize">@dimen/button_text_size</item>
-        <item name="android:paddingLeft">@dimen/button_horizontal_padding</item>
-        <item name="android:paddingRight">@dimen/button_horizontal_padding</item>
+        <item name="android:paddingLeft">@dimen/button_padding</item>
+        <item name="android:paddingRight">@dimen/button_padding</item>
+    </style>
+
+    <style name="MainTextStyle" parent="TextAppearance.AppCompat.Headline"/>
+    <style name="SubTextStyle" parent="TextAppearance.AppCompat.Body1"/>
+    <style name="RecentPostsMaintextStyle">
+        <item name="android:textSize">@dimen/likes_text_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>
