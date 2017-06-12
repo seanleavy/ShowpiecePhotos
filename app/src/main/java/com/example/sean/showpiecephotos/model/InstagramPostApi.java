@@ -3,6 +3,7 @@ package com.example.sean.showpiecephotos.model;
 
 import com.example.sean.showpiecephotos.constants.Constants;
 import com.example.sean.showpiecephotos.model.Pojo.recentPosts.InstagramPost;
+import com.example.sean.showpiecephotos.singletons.TokenSingleton;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -26,7 +27,7 @@ public class InstagramPostApi {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(InstagramRecentMediaService.class)
-            .getRecentMedia("1491562952.65fd82d.c25001c90509456ab4ae74b4cfbdc249")
+            .getRecentMedia(TokenSingleton.getInstance().getAccessToken())
             .cache();
 
     public Observable<InstagramPost> getRecentMediaObservable() {

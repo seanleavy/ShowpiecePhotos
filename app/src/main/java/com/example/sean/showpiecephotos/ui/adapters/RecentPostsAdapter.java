@@ -53,7 +53,7 @@ public class RecentPostsAdapter extends RecyclerView.Adapter<RecentPostsAdapter.
         holder.fullName.setText(recentPosts.get(position).getUser().getFullName());
         holder.likes.setText(recentPosts.get(position).getLikes().getCount().toString());
         Picasso.with(context).load(recentPosts.get(position).getImages().getThumbnail().getUrl())
-                .placeholder(android.R.mipmap.sym_def_app_icon)
+                .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.postImage);
     }
 

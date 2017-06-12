@@ -2,6 +2,7 @@ package com.example.sean.showpiecephotos.model;
 
 import com.example.sean.showpiecephotos.constants.Constants;
 import com.example.sean.showpiecephotos.model.Pojo.user.InstagramUser;
+import com.example.sean.showpiecephotos.singletons.TokenSingleton;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -24,7 +25,7 @@ public class InstagramUserApi {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(InstagramUserService.class)
-            .getUserSelf("1491562952.65fd82d.c25001c90509456ab4ae74b4cfbdc249")
+            .getUserSelf(TokenSingleton.getInstance().getAccessToken())
             .cache();
 
     public Observable<InstagramUser> getUserObservable() {

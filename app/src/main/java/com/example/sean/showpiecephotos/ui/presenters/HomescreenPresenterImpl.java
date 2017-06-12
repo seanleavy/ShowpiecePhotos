@@ -39,6 +39,7 @@ public class HomescreenPresenterImpl implements HomescreenPresenter {
                 .subscribe(new Subscriber<InstagramUser>() {
                     @Override
                     public void onCompleted() {
+
                     }
 
                     @Override
