@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import com.example.sean.showpiecephotos.R;
 import com.example.sean.showpiecephotos.constants.Constants;
 import com.example.sean.showpiecephotos.events.RecentPostsEvent;
 import com.example.sean.showpiecephotos.events.SelfUserEvent;
-import com.example.sean.showpiecephotos.model.Pojo.user.InstagramUser;
+import com.example.sean.showpiecephotos.model.Pojo.self.Self;
 import com.example.sean.showpiecephotos.ui.adapters.RecentPostsAdapter;
 import com.example.sean.showpiecephotos.ui.presenters.HomescreenPresenter;
 import com.example.sean.showpiecephotos.ui.presenters.HomescreenPresenterImpl;
@@ -54,15 +53,8 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
     @BindView(R.id.loadDataButton)
     Button loadInstagramData;
 
-    @OnClick(R.id.loadDataButton) void load() {
-        homescreenPresenter.populateUser();
-        homescreenPresenter.getRecentPosts();
-        loadInstagramData.setVisibility(View.GONE);
-
-    }
-
     private HomescreenPresenter homescreenPresenter;
-    private RecentPostsAdapter recentPostsAdapter;
+    private RecentPostsAdapter recentMediaAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,12 +63,14 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
         ButterKnife.bind(this);
         setUpRecyclerView();
         homescreenPresenter = new HomescreenPresenterImpl(this);
+        homescreenPresenter.populateUser();
+        homescreenPresenter.getRecentPosts();
     }
 
     private void setUpRecyclerView() {
         recentPostsRecyclerView.setLayoutManager(new LinearLayoutManager(recentPostsRecyclerView.getContext()));
-        recentPostsAdapter = new RecentPostsAdapter(this);
-        recentPostsRecyclerView.setAdapter(recentPostsAdapter);
+        recentMediaAdapter = new RecentPostsAdapter(this);
+        recentPostsRecyclerView.setAdapter(recentMediaAdapter);
     }
 
     @Override
@@ -107,7 +101,7 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onRecentPostsSuccessEvent(RecentPostsEvent recentPostsEvent) {
-        recentPostsAdapter.addPost(recentPostsEvent.getRecentPosts());
+        recentMediaAdapter.add(recentPostsEvent.getRecentPosts());
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -115,7 +109,7 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
         populateSelf(selfUserEvent.getSelfUser());
     }
 
-    private void populateSelf(InstagramUser self) {
+    private void populateSelf(Self self) {
         fullName.setText(self.getData().getFullName());
         nickName.setText(self.getData().getUsername());
         following.setText(self.getData().getCounts().getFollows().toString());

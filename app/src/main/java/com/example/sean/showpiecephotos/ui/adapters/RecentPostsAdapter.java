@@ -9,15 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sean.showpiecephotos.R;
-import com.example.sean.showpiecephotos.R2;
-import com.example.sean.showpiecephotos.model.Pojo.recentPosts.InstagramPost;
-import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.Datum;
+import com.example.sean.showpiecephotos.model.Pojo.recent.Datum;
+import com.example.sean.showpiecephotos.model.Pojo.recent.RecentPosts;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,8 +32,8 @@ public class RecentPostsAdapter extends RecyclerView.Adapter<RecentPostsAdapter.
         this.context = context;
     }
 
-    public void addPost(InstagramPost instagramPost) {
-        recentPosts.addAll(instagramPost.getData());
+    public void add(RecentPosts recentMedia) {
+        this.recentPosts.addAll(recentMedia.getData());
         notifyDataSetChanged();
     }
 

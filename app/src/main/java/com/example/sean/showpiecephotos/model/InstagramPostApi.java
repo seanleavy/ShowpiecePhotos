@@ -2,11 +2,9 @@ package com.example.sean.showpiecephotos.model;
 
 
 import com.example.sean.showpiecephotos.constants.Constants;
-import com.example.sean.showpiecephotos.model.Pojo.recentPosts.InstagramPost;
+import com.example.sean.showpiecephotos.model.Pojo.recent.RecentPosts;
 import com.example.sean.showpiecephotos.singletons.TokenSingleton;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -18,10 +16,10 @@ public class InstagramPostApi {
 
     private interface InstagramRecentMediaService {
         @GET("users/self/media/recent")
-        Observable<InstagramPost> getRecentMedia(@Query("access_token") String access_token);
+        Observable<RecentPosts> getRecentMedia(@Query("access_token") String access_token);
     }
 
-    private Observable<InstagramPost> recentMediaObservable = new Retrofit.Builder()
+    private Observable<RecentPosts> recentMediaObservable = new Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
@@ -30,7 +28,7 @@ public class InstagramPostApi {
             .getRecentMedia(TokenSingleton.getInstance().getAccessToken())
             .cache();
 
-    public Observable<InstagramPost> getRecentMediaObservable() {
+    public Observable<RecentPosts> getRecentMediaObservable() {
         return recentMediaObservable;
     }
 }

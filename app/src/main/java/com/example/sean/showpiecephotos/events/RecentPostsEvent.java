@@ -1,18 +1,16 @@
 package com.example.sean.showpiecephotos.events;
 
-import com.example.sean.showpiecephotos.model.Pojo.recentPosts.InstagramPost;
-
-import java.util.List;
+import com.example.sean.showpiecephotos.model.Pojo.recent.RecentPosts;
 
 public class RecentPostsEvent {
 
-    private InstagramPost post;
+    private RecentPosts post;
 
-    public RecentPostsEvent(InstagramPost post) {
+    public RecentPostsEvent(RecentPosts post) {
         this.post = post;
     }
 
-    public InstagramPost getRecentPosts() {
+    public RecentPosts getRecentPosts() {
         return post;
     }
 }

@@ -1,16 +1,16 @@
 package com.example.sean.showpiecephotos.events;
 
-import com.example.sean.showpiecephotos.model.Pojo.user.InstagramUser;
+import com.example.sean.showpiecephotos.model.Pojo.self.Self;
 
 public class SelfUserEvent {
 
-    private InstagramUser user;
+    private Self user;
 
-    public SelfUserEvent(InstagramUser user) {
+    public SelfUserEvent(Self user) {
         this.user = user;
     }
 
-    public InstagramUser getSelfUser() {
+    public Self getSelfUser() {
         return user;
     }
 }

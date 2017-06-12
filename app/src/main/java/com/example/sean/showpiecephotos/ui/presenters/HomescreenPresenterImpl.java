@@ -1,17 +1,15 @@
 package com.example.sean.showpiecephotos.ui.presenters;
 
 
-import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.sean.showpiecephotos.events.ErrorEvent;
 import com.example.sean.showpiecephotos.events.RecentPostsEvent;
 import com.example.sean.showpiecephotos.events.SelfUserEvent;
 import com.example.sean.showpiecephotos.model.InstagramPostApi;
 import com.example.sean.showpiecephotos.model.InstagramUserApi;
-import com.example.sean.showpiecephotos.model.Pojo.recentPosts.InstagramPost;
-import com.example.sean.showpiecephotos.model.Pojo.user.InstagramUser;
+import com.example.sean.showpiecephotos.model.Pojo.recent.RecentPosts;
+import com.example.sean.showpiecephotos.model.Pojo.self.Self;
 import com.example.sean.showpiecephotos.ui.views.HomescreenView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -36,7 +34,7 @@ public class HomescreenPresenterImpl implements HomescreenPresenter {
     @Override
     public void populateUser() {
         instagramUserApi.getUserObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<InstagramUser>() {
+                .subscribe(new Subscriber<Self>() {
                     @Override
                     public void onCompleted() {
 
@@ -49,7 +47,7 @@ public class HomescreenPresenterImpl implements HomescreenPresenter {
                     }
 
                     @Override
-                    public void onNext(InstagramUser instagramUser) {
+                    public void onNext(Self instagramUser) {
                         EventBus.getDefault().post(new SelfUserEvent(instagramUser));
                     }
                 });
@@ -58,7 +56,7 @@ public class HomescreenPresenterImpl implements HomescreenPresenter {
     @Override
     public void getRecentPosts() {
         instagramPostApi.getRecentMediaObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<InstagramPost>() {
+                .subscribe(new Subscriber<RecentPosts>() {
                     @Override
                     public void onCompleted() {
 
@@ -71,7 +69,7 @@ public class HomescreenPresenterImpl implements HomescreenPresenter {
                     }
 
                     @Override
-                    public void onNext(InstagramPost instagramPosts) {
+                    public void onNext(RecentPosts instagramPosts) {
                         EventBus.getDefault().post(new RecentPostsEvent(instagramPosts));
                     }
                 });
