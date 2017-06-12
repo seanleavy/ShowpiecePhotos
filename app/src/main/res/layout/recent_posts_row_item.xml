@@ -33,7 +33,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/uploaderName"
+                    android:id="@+id/uploaderDate"
                     style="@style/RecentPostsMaintextStyle"
                     android:text="placeholder"
                     android:paddingBottom="@dimen/standard_padding"

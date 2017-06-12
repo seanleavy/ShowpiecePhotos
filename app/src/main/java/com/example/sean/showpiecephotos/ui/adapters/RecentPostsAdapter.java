@@ -13,7 +13,9 @@ import com.example.sean.showpiecephotos.model.Pojo.recent.Datum;
 import com.example.sean.showpiecephotos.model.Pojo.recent.RecentPosts;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -21,6 +23,8 @@ import butterknife.ButterKnife;
 
 
 public class RecentPostsAdapter extends RecyclerView.Adapter<RecentPostsAdapter.ViewHolder> {
+
+    SimpleDateFormat sfd = new SimpleDateFormat("MMMM dd,yyyy");
 
     // Used Datum part of model and split the InstagramPost response
     private List<Datum> recentPosts;
@@ -49,10 +53,11 @@ public class RecentPostsAdapter extends RecyclerView.Adapter<RecentPostsAdapter.
         holder.caption.setText(recentPosts.get(position).getCaption().getText());
         holder.postId.setText(recentPosts.get(position).getId());
         holder.likes.setText(recentPosts.get(position).getLikes().getCount().toString());
-        holder.uploader.setText(recentPosts.get(position).getUser().getUsername());
+        holder.uploader.setText(sfd.format(new Date((Long.parseLong(recentPosts.get(position).getCreatedTime()) * 1000))));
         Picasso.with(context).load(recentPosts.get(position).getImages().getThumbnail().getUrl())
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.postImage);
+
     }
 
     @Override
@@ -71,7 +76,7 @@ public class RecentPostsAdapter extends RecyclerView.Adapter<RecentPostsAdapter.
         @BindView(R.id.post_likes)
         TextView likes;
 
-        @BindView(R.id.uploaderName)
+        @BindView(R.id.uploaderDate)
         TextView uploader;
 
         @BindView(R.id.post_caption_text)

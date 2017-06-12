@@ -51,9 +51,6 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
     @BindView(R.id.profile_pic)
     ImageView profilePic;
 
-    @BindView(R.id.loadDataButton)
-    Button loadInstagramData;
-
     private HomescreenPresenter homescreenPresenter;
     private RecentPostsAdapter recentMediaAdapter;
 
