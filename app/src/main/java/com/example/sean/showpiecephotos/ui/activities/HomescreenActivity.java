@@ -1,13 +1,16 @@
 package com.example.sean.showpiecephotos.ui.activities;
 
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sean.showpiecephotos.R;
 import com.example.sean.showpiecephotos.constants.Constants;
@@ -48,9 +51,14 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
     @BindView(R.id.profile_pic)
     ImageView profilePic;
 
+    @BindView(R.id.loadDataButton)
+    Button loadInstagramData;
+
     @OnClick(R.id.loadDataButton) void load() {
         homescreenPresenter.populateUser();
         homescreenPresenter.getRecentPosts();
+        loadInstagramData.setVisibility(View.GONE);
+
     }
 
     private HomescreenPresenter homescreenPresenter;
@@ -83,6 +91,20 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
         EventBus.getDefault().unregister(this);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.menu_logout) {
+            logout();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onRecentPostsSuccessEvent(RecentPostsEvent recentPostsEvent) {
         recentPostsAdapter.addPost(recentPostsEvent.getRecentPosts());
@@ -102,5 +124,11 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
                 .placeholder(android.R.mipmap.sym_def_app_icon)
                 .error(R.mipmap.ic_launcher_round)
                 .into(profilePic);
+    }
+
+    private void logout() {
+        getSharedPreferences(getPackageName(), MODE_PRIVATE).edit().remove(Constants.ACCESS_TOKEN).apply();
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 }

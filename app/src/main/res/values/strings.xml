@@ -2,6 +2,7 @@
     <string name="app_name">ShowpiecePhotos</string>
 
     <string name="login_button">login</string>
+    <string name="logout">logout</string>
     <string name="followers">followers</string>
     <string name="follows">follows</string>
     <string name="likes">likes</string>
