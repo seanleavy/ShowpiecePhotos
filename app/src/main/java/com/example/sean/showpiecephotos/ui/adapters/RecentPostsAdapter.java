@@ -1,5 +1,6 @@
 package com.example.sean.showpiecephotos.ui.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +12,12 @@ import com.example.sean.showpiecephotos.R;
 import com.example.sean.showpiecephotos.R2;
 import com.example.sean.showpiecephotos.model.Pojo.recentPosts.InstagramPost;
 import com.example.sean.showpiecephotos.model.Pojo.recentPosts.nested.Datum;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,8 +28,11 @@ public class RecentPostsAdapter extends RecyclerView.Adapter<RecentPostsAdapter.
     // Used Datum part of model and split the InstagramPost response
     private List<Datum> recentPosts;
 
-    public RecentPostsAdapter() {
+    private Context context;
+
+    public RecentPostsAdapter(Context context) {
         this.recentPosts = new ArrayList<>();
+        this.context = context;
     }
 
     public void addPost(InstagramPost instagramPost) {
@@ -45,7 +52,9 @@ public class RecentPostsAdapter extends RecyclerView.Adapter<RecentPostsAdapter.
         holder.caption.setText(recentPosts.get(position).getCaption().getText());
         holder.fullName.setText(recentPosts.get(position).getUser().getFullName());
         holder.likes.setText(recentPosts.get(position).getLikes().getCount().toString());
-        //populate widget values here with datum.get
+        Picasso.with(context).load(recentPosts.get(position).getImages().getThumbnail().getUrl())
+                .placeholder(android.R.mipmap.sym_def_app_icon)
+                .into(holder.postImage);
     }
 
     @Override

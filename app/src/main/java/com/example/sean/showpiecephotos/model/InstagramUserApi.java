@@ -22,7 +22,8 @@ public class InstagramUserApi {
             .baseUrl(Constants.BASE_URL)
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
-            .build().create(InstagramUserService.class)
+            .build()
+            .create(InstagramUserService.class)
             .getUserSelf("1491562952.65fd82d.c25001c90509456ab4ae74b4cfbdc249")
             .cache();
 
