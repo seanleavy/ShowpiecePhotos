@@ -2,6 +2,8 @@
 Instagram Client
 
 
+![Demo](https://github.com/seanleavy/ShowpiecePhotos/blob/master/demo.gif)
+
 Simple Instagram client that displays User Profile and Recent Posts
 
 Instagram API sandboxing:
