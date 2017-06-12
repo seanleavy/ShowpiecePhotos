@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -53,6 +54,12 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
     @BindView(R.id.loadDataButton)
     Button loadInstagramData;
 
+    @OnClick(R.id.loadDataButton) void load() {
+        homescreenPresenter.populateUser();
+        homescreenPresenter.getRecentPosts();
+        loadInstagramData.setVisibility(View.GONE);
+    }
+
     private HomescreenPresenter homescreenPresenter;
     private RecentPostsAdapter recentMediaAdapter;
 
@@ -63,8 +70,6 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
         ButterKnife.bind(this);
         setUpRecyclerView();
         homescreenPresenter = new HomescreenPresenterImpl(this);
-        homescreenPresenter.populateUser();
-        homescreenPresenter.getRecentPosts();
     }
 
     private void setUpRecyclerView() {

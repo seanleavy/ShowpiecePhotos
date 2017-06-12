@@ -47,8 +47,9 @@ public class RecentPostsAdapter extends RecyclerView.Adapter<RecentPostsAdapter.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.caption.setText(recentPosts.get(position).getCaption().getText());
-        holder.fullName.setText(recentPosts.get(position).getUser().getFullName());
+        holder.postId.setText(recentPosts.get(position).getId());
         holder.likes.setText(recentPosts.get(position).getLikes().getCount().toString());
+        holder.uploader.setText(recentPosts.get(position).getUser().getUsername());
         Picasso.with(context).load(recentPosts.get(position).getImages().getThumbnail().getUrl())
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.postImage);
@@ -64,11 +65,14 @@ public class RecentPostsAdapter extends RecyclerView.Adapter<RecentPostsAdapter.
         @BindView(R.id.post_image)
         ImageView postImage;
 
-        @BindView(R.id.post_fullname)
-        TextView fullName;
+        @BindView(R.id.post_id)
+        TextView postId;
 
         @BindView(R.id.post_likes)
         TextView likes;
+
+        @BindView(R.id.uploaderName)
+        TextView uploader;
 
         @BindView(R.id.post_caption_text)
         TextView caption;
