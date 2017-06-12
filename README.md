@@ -1,0 +1,11 @@
+# ShowpiecePhotos
+Instagram Client
+
+
+Simple Instagram client that displays User Profile and Recent Posts
+
+Instagram API sandboxing:
+
+Instagram rules state that any user must have permission of the app creator to oauth when using their api. 
+Unfortunately this means having to invite every new user into the sandbox until Instagram approves the app.
+
