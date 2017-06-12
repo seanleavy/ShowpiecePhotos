@@ -54,12 +54,6 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
     @BindView(R.id.loadDataButton)
     Button loadInstagramData;
 
-    @OnClick(R.id.loadDataButton) void load() {
-        homescreenPresenter.populateUser();
-        homescreenPresenter.getRecentPosts();
-        loadInstagramData.setVisibility(View.GONE);
-    }
-
     private HomescreenPresenter homescreenPresenter;
     private RecentPostsAdapter recentMediaAdapter;
 
@@ -70,6 +64,8 @@ public class HomescreenActivity extends AppCompatActivity implements HomescreenV
         ButterKnife.bind(this);
         setUpRecyclerView();
         homescreenPresenter = new HomescreenPresenterImpl(this);
+        homescreenPresenter.populateUser();
+        homescreenPresenter.getRecentPosts();
     }
 
     private void setUpRecyclerView() {
