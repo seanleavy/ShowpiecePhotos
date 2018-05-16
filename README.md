@@ -1,6 +1,7 @@
 # ShowpiecePhotos
 Instagram Client built using MVP and RxJava/Retrofit
 
+Was done as part of a one day programming test
 
 ![Demo](https://github.com/seanleavy/ShowpiecePhotos/blob/master/demo.gif)
 
